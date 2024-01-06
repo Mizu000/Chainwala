@@ -1,4 +1,13 @@
 <resources>
     <string name="app_name">ChainWala</string>
     <string name="chain_wala">Chain Wala</string>
+    <string name="chain_name">Chain Name</string>
+    <string name="_75">75</string>
+    <string name="_83_50">83.50</string>
+    <string name="_92">92</string>
+    <string name="gold_melting_payment">Gold Melting Payment</string>
+    <string name="custom">Custom</string>
+    <string name="_100">100</string>
+    <string name="_99_5">99.5</string>
+    <string name="add_to_cart">Add to cart</string>
 </resources>

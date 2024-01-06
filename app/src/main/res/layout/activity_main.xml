@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:orientation="horizontal"
         android:background="@color/primary_color"
         android:weightSum="5"
@@ -23,8 +23,8 @@
             android:text="@string/chain_wala"
             android:background="@color/primary_color"
             android:textStyle="bold"
-            android:textSize="28sp"
-            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textColor="@color/secondary_color"
             android:paddingStart="10dp"
             android:gravity="center_vertical"
             />
@@ -50,12 +50,147 @@
 
     </LinearLayout>
 
+    <Spinner
+        android:id="@+id/spinnerChainType"
+        android:layout_width="190dp"
+        android:layout_height="50dp"
+        android:scrollbarSize="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgMelting"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="20dp"
+        >
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/rbtnMelting75"
+            android:layout_weight="1"
+            android:text="@string/_75"
+            android:checked="true"
+            />
+
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/rbtnMelting83"
+            android:layout_weight="1"
+            android:text="@string/_83_50"
+            />
+
+
+        <RadioButton
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:id="@+id/rbtnMelting92"
+            android:layout_weight="1"
+            android:text="@string/_92"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txtChainName"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:text="@string/chain_name"
+        android:textSize="28sp"
+        android:textColor="@color/secondary_color"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        />
+    
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/etChainWeight"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="25dp"
+        android:paddingStart="10dp"
+        android:background="#E3E0CF"
+        android:textColor="@color/secondary_color"
+        android:hint="Enter chain weight in gram"
+        android:textColorHint="@color/secondary_color"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/gold_melting_payment"
+        android:textColor="@color/secondary_color"
+        android:textSize="22sp"
+        android:layout_marginTop="30dp"
+        android:padding="5dp"
+        android:gravity="center"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgGoldMelting"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="15dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting99.5"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/_99_5" />
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting100"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/_100"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/rbtnMeltingCustom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/custom" />
+
+    </RadioGroup>
+
+
     <Button
-        android:layout_width="50dp"
+        android:id="@+id/btnAddToCart"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:background="@color/secondary_color"
+        android:text="@string/add_to_cart"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/secondary_color"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:background="@color/primary_color"
+        android:layout_marginTop="45dp"
         />
+    
+  
 
 
 </LinearLayout>
