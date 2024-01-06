@@ -5,12 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:theme="@style/Theme.ChainWala"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
+        android:background="@color/primary_color"
+        android:weightSum="5"
+        >
+
+        <TextView
+            android:layout_width= "0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/chain_wala"
+            android:background="@color/primary_color"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="@color/white"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical"
+            />
+
+        <ImageView
+            android:id="@+id/imgChainCalculator"
+            android:layout_width= "0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/ic_calculator"
+            />
+
+        <ImageView
+            android:id="@+id/imgChainBasket"
+            android:layout_width= "0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:src="@drawable/ic_cart"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:background="@color/secondary_color"
         />
 
 

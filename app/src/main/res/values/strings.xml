@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Chain Wala</string>
+    <string name="app_name">ChainWala</string>
+    <string name="chain_wala">Chain Wala</string>
 </resources>
