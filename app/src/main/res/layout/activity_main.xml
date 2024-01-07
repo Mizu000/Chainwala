@@ -10,16 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:orientation="horizontal"
         android:background="@color/primary_color"
-        android:weightSum="5"
+        android:weightSum="15"
         >
 
         <TextView
             android:layout_width= "0dp"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="9"
             android:text="@string/chain_wala"
             android:background="@color/primary_color"
             android:textStyle="bold"
@@ -33,7 +33,7 @@
             android:id="@+id/imgChainCalculator"
             android:layout_width= "0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:padding="5dp"
             android:src="@drawable/ic_calculator"
             />
@@ -42,9 +42,18 @@
             android:id="@+id/imgChainBasket"
             android:layout_width= "0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:padding="5dp"
             android:src="@drawable/ic_cart"
+            />
+
+        <ImageView
+            android:id="@+id/imgSetting"
+            android:layout_width= "0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:src="@drawable/ic_setting"
             />
 
 
