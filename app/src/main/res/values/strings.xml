@@ -11,4 +11,5 @@
     <string name="_99_5">99.5</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="cash">Cash</string>
+    <string name="enter_chain_weight_in_gram">Enter chain weight in gram</string>
 </resources>

@@ -129,8 +129,10 @@
         android:layout_marginTop="25dp"
         android:paddingStart="10dp"
         android:background="#E3E0CF"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
         android:textColor="@color/secondary_color"
-        android:hint="Enter chain weight in gram"
+        android:hint="@string/enter_chain_weight_in_gram"
         android:textColorHint="@color/secondary_color"
         />
 
