@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //
-        bind.spinnerChainType.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,arrChainList)
+        bind.spinnerChainType.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,arrChainList)
         bind.spinnerChainType.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
