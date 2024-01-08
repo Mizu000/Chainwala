@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.Setting">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtGoldPricePer10GramHeading"
+        android:text="Gold price Per 10 Gram"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etGoldPer10Gram"
+        android:inputType="number"
+        android:layout_below="@id/txtGoldPricePer10GramHeading"
+        android:text="62800"
+        android:paddingStart="10dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtExtraGoldPricePer10GramHeading"
+        android:text="Extra Gold price Per 10 Gram"
+        android:textStyle="bold"
+        android:textSize="28sp"
+        android:gravity="center"
+        android:layout_below="@id/etGoldPer10Gram"
+        android:layout_marginTop="20dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/etExtraGoldPer10Gram"
+        android:layout_below="@id/txtExtraGoldPricePer10GramHeading"
+        android:inputType="number"
+        android:text="62000"
+        android:paddingStart="10dp"
+        />
+
+    <Button
+        android:id="@+id/btnSaveSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/primary_color"
+        android:layout_below="@id/etExtraGoldPer10Gram"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:layout_marginTop="20dp"
+        android:text="Save"
+        android:textColor="@color/secondary_color"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

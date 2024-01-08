@@ -27,12 +27,7 @@ class MainActivity : AppCompatActivity() {
     //
     private var goldMeltingPayment = "99.5"
     //
-    companion object{
-        
-        var goldPricePerGram = 6280
-        var extraGoldPricePerGram = 6200
 
-    }
     //
     
 
