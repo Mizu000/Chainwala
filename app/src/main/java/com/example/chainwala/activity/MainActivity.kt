@@ -1,4 +1,4 @@
-package com.example.chainwala
+package com.example.chainwala.activity
 
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.chainwala.R
 import com.example.chainwala.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -79,11 +80,11 @@ class MainActivity : AppCompatActivity() {
             when(i)
             {
 
-                R.id.rbtnGoldMelting99_5   -> {
+                R.id.rbtnGoldMelting99_5 -> {
                     goldMeltingPayment = "99.5"
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
-                R.id.rbtnGoldMelting100    -> {
+                R.id.rbtnGoldMelting100 -> {
                     goldMeltingPayment = "100"
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                     openTunchInput()
 
                 }
-                R.id.rbtnGoldMeltingCash   -> {
+                R.id.rbtnGoldMeltingCash -> {
                     goldMeltingPayment = "Cash"
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
