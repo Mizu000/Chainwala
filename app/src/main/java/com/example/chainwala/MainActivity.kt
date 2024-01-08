@@ -1,10 +1,15 @@
 package com.example.chainwala
 
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import com.example.chainwala.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -74,14 +79,73 @@ class MainActivity : AppCompatActivity() {
             when(i)
             {
 
-                R.id.rbtnGoldMelting99_5   -> goldMeltingPayment = "99.5"
-                R.id.rbtnGoldMelting100    -> goldMeltingPayment = "100"
-                R.id.rbtnGoldMeltingCustom -> goldMeltingPayment = "Tunch"
-                R.id.rbtnGoldMeltingCash   -> goldMeltingPayment = "Cash"
+                R.id.rbtnGoldMelting99_5   -> {
+                    goldMeltingPayment = "99.5"
+                    bind.rbtnGoldMeltingCustom.text = "Tunch"
+                }
+                R.id.rbtnGoldMelting100    -> {
+                    goldMeltingPayment = "100"
+                    bind.rbtnGoldMeltingCustom.text = "Tunch"
+                }
+                R.id.rbtnGoldMeltingCustom -> {
+
+                    goldMeltingPayment = "Tunch"
+                    openTunchInput()
+
+                }
+                R.id.rbtnGoldMeltingCash   -> {
+                    goldMeltingPayment = "Cash"
+                    bind.rbtnGoldMeltingCustom.text = "Tunch"
+                }
 
             }
+
+
+
+
         }
         //
+
+    }
+    //
+    private fun openTunchInput()
+    {
+
+        val dialog = Dialog(this)
+        dialog.setContentView(R.layout.tunch_input)
+        dialog.setCancelable(false)
+
+
+        // Adjust the dialog's layout parameters
+        val layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT)
+        dialog.window?.setLayout(layoutParams.width, layoutParams.height)
+        //
+        val etTunchInput:EditText = dialog.findViewById(R.id.etTunchMelting)
+        val btnTunchMelting:Button = dialog.findViewById(R.id.btnTunchMelting)
+
+            dialog.show()
+
+        //
+
+
+
+
+        btnTunchMelting.setOnClickListener {
+
+            if (etTunchInput.text.toString().isNotEmpty()) {
+
+                val tunchShow = etTunchInput.text.toString()
+                bind.rbtnGoldMeltingCustom.text = tunchShow
+                dialog.dismiss()
+
+            } else {
+                Toast.makeText(this, "Please Enter something", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+
+        ///
 
     }
     ///
