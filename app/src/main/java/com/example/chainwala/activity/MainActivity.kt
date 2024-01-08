@@ -1,6 +1,7 @@
 package com.example.chainwala.activity
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,12 +21,20 @@ class MainActivity : AppCompatActivity() {
 
     private var chainMelting = 75.0
      var chainType = "Kamal"
+    private var itemWeight = 0.0
+    var wastagePercent =0.0
+    var meltPlusWastage=0.0
     //
     private var goldMeltingPayment = "99.5"
     //
     companion object{
+        
+        var goldPricePerGram = 6280
+        var extraGoldPricePerGram = 6200
 
     }
+    //
+    
 
     private lateinit var bind:ActivityMainBinding
 
@@ -35,6 +44,30 @@ class MainActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         //
+        bind.btnAddToCart.setOnClickListener {
+
+
+        }
+        //
+        bind.imgChainCalculator.setOnClickListener {
+
+            val ins = Intent(this@MainActivity,ChainCalculator::class.java)
+            startActivity(ins)
+
+        }
+        //
+        bind.imgChainBasket.setOnClickListener {
+
+            val ins = Intent(this@MainActivity,ChainBasket::class.java)
+            startActivity(ins)
+
+        }
+        //
+        bind.imgSetting.setOnClickListener {
+            val ins = Intent(this@MainActivity,Setting::class.java)
+            startActivity(ins)
+
+        }
         //
         bind.rgMelting.setOnCheckedChangeListener { _, i ->
 
@@ -163,6 +196,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+    //
     //
 
 

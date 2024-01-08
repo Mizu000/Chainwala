@@ -4,5 +4,6 @@ data class Bill (
 
     val customerName:String,
     val billDate:String,
-    val billDetail:BillDetails,
+    val billDetail:BillDetails
+
 )
