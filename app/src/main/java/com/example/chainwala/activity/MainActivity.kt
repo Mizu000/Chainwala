@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
     private var fineGold = 0.0
     private var _9950Gold = 0.0
     private var tunchGold = 0.0
-    private var amountToPay = 0.0
+    private var amountToPay = 0
     //
 
     ///
@@ -300,21 +300,29 @@ class MainActivity : AppCompatActivity() {
     private fun fineCaluclator()
     {
         fineGold = itemWeight*meltPlusWastage/100
+        fineGold = String.format("%.3f",fineGold).toDouble()
     }
     //
     private fun _9950Calculator()
     {
         _9950Gold = itemWeight*meltPlusWastage/99.5
+        _9950Gold = String.format("%.3f",_9950Gold).toDouble()
     }
     //
     private fun tunchCalculator()
     {
-        tunchGold = itemWeight*meltPlusWastage/tunchValue
+        tunchGold = if(tunchValue==0.0) {
+            0.0
+        } else {
+            itemWeight*meltPlusWastage/tunchValue
+        }
+        tunchGold = String.format("%.3f",tunchGold).toDouble()
+
     }
     //
     private fun amountCalculator()
     {
-        amountToPay = fineGold* goldPricePerGram
+        amountToPay = (fineGold* goldPricePerGram).toInt()
     }
     //
     private fun openTunchInput()
@@ -334,7 +342,6 @@ class MainActivity : AppCompatActivity() {
         val btnTunchMelting:Button = dialog.findViewById(R.id.btnTunchMelting)
             dialog.show()
         //
-
 
         btnTunchMelting.setOnClickListener {
 

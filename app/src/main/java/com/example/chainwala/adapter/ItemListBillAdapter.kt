@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chainwala.R
 import com.example.chainwala.modal.BillDetails
 
-class ItemListBillAdapter(val perItemBill:ArrayList<BillDetails>):
+class ItemListBillAdapter(private val perItemBill:ArrayList<BillDetails>):
     RecyclerView.Adapter<ItemListBillAdapter.ItemListBillHolder>() {
 
 

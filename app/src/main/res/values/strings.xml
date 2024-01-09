@@ -15,4 +15,5 @@
     <string name="enter_chain_weight_in_gram">Enter chain weight in gram</string>
     <string name="enter_tunch_melting">Enter Tunch Melting</string>
     <string name="ok">Ok</string>
+    <string name="payment">Payment</string>
 </resources>

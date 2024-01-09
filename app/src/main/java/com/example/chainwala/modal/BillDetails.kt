@@ -10,6 +10,6 @@ data class BillDetails(
     val fine:Double,
     val _9950:Double,
     val tunch:Double,
-    val amount:Double
+    val amount:Int
 
 )

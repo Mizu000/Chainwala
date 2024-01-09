@@ -12,7 +12,7 @@
         android:id="@+id/txtPaymentShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/gold_melting_payment"
+        android:text="@string/payment"
         android:layout_alignParentTop="true"
         android:textColor="@color/secondary_color"
         android:textSize="22sp"
@@ -21,133 +21,86 @@
         android:gravity="center"
         />
 
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/rgGoldMelting"
-        android:orientation="horizontal"
-        android:weightSum="4"
-        android:layout_below="@+id/txtPaymentShow"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="5dp"
-        >
-
-        <RadioButton
-            android:id="@+id/rbtnGoldMelting99.5"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/_99_5" />
-
-        <RadioButton
-            android:id="@+id/rbtnGoldMelting100"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="@string/_100"
-
-            />
-
-
-        <RadioButton
-            android:id="@+id/rbtnGoldMeltingCustom"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="@string/tunch" />
-
-        <RadioButton
-            android:id="@+id/rbtnGoldMeltingCash"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:text="@string/cash"
-
-            />
-
-
-    </RadioGroup>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/llBillHeading"
-        android:layout_below="@id/rgGoldMelting"
+        android:layout_below="@id/txtPaymentShow"
+        android:background="@color/primary_color"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
+            android:gravity="center"
             android:text="Name"
-            android:gravity="center"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Wght"
-            android:gravity="center"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="Melt%"
             android:gravity="center"
-            />
+            android:text="Melt%"
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:text="W%"
-            android:gravity="center"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="MW%"
-            android:gravity="center"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Fine"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="99.5"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Tunch"
-            />
+            android:textColor="@color/secondary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Amount"
             android:gravity="center"
-            />
+            android:text="Amount"
+            android:textColor="@color/secondary_color" />
 
     </LinearLayout>
 
@@ -161,84 +114,85 @@
         />
 
     <LinearLayout
+        android:id="@+id/llBillTotal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/llBillTotal"
         android:layout_above="@id/btnPrintBill"
         android:layout_marginBottom="20dp"
+        android:background="@color/secondary_color"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
+            android:gravity="center"
             android:text="Total"
-            android:gravity="center"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Wght"
-            android:gravity="center"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:text="Melt%"
             android:gravity="center"
-            />
+            android:text="Melt%"
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
+            android:gravity="center"
             android:text="W%"
-            android:gravity="center"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="MW%"
-            android:gravity="center"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Fine"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="99.5"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:gravity="center"
             android:layout_weight="3"
+            android:gravity="center"
             android:text="Tunch"
-            />
+            android:textColor="@color/primary_color" />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
-            android:text="Amount"
             android:gravity="center"
-            />
+            android:text="Amount"
+            android:textColor="@color/primary_color" />
 
     </LinearLayout>
 
