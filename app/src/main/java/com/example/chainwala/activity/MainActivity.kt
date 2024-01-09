@@ -15,23 +15,35 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.chainwala.R
 import com.example.chainwala.databinding.ActivityMainBinding
+import com.example.chainwala.modal.BillDetails
 
 class MainActivity : AppCompatActivity() {
 
-    var arrChainList = arrayOf("Kamal","Sehensha","Ball Chain","Box Chain","Rodking",
-        "Press Chain","Crop Chain","Noli","Chaki Pech","Noli Pech")
+    var arrChainList = arrayOf("Kamal","Sehensha","Ball Chain","Crop Chain","Box Chain","Rodking",
+        "Press Chain","Noli","Chaki Pech","Noli Pech")
 
     private var chainMelting = 75.0
-     var chainType = "Kamal"
-    private var itemWeight = 0.0
+    var chainType = "Kamal"
+    var itemWeight = 0.0
     var wastagePercent =0.0
     var meltPlusWastage=0.0
+    var tunchValue = 0.0
+    var chainCategory = 1   /// 1 = kamal wastage, 2 = box chain wasatage, 3 -> pech
+    ////
+    private var fineGold = 0.0
+    private var _9950Gold = 0.0
+    private var tunchGold = 0.0
+    private var amountToPay = 0.0
     //
+
+    ///
+
     private var goldMeltingPayment = "99.5"
     //
 
     companion object{
 
+        var arrayPerItemBill = arrayListOf<BillDetails>()
         var goldPricePerGram = 6280
         var extraGoldPricePerGram = 6200
 
@@ -51,15 +63,14 @@ class MainActivity : AppCompatActivity() {
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        //
+        arrayPerItemBill.clear()  /// clearing the previous bill
+        //
         sharedPreferences = getSharedPreferences(GOLD_PRICE_FILE, Context.MODE_PRIVATE)
         goldPricePerGram = sharedPreferences.getInt(GOLD_PER_GRAM, goldPricePerGram)
         extraGoldPricePerGram = sharedPreferences.getInt(EXTRA_GOLD_PER_GRAM, extraGoldPricePerGram)
         //
-        bind.btnAddToCart.setOnClickListener {
 
-
-        }
-        //
         bind.imgChainCalculator.setOnClickListener {
 
             val ins = Intent(this@MainActivity,ChainCalculator::class.java)
@@ -94,7 +105,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         //
-        bind.spinnerChainType.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,arrChainList)
+        bind.spinnerChainType.adapter = ArrayAdapter(this,android.R.layout.simple_spinner_item,arrChainList)
         bind.spinnerChainType.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -104,6 +115,20 @@ class MainActivity : AppCompatActivity() {
             ) {
 
                 chainType = arrChainList[position]
+                when
+                {
+                    position<=3 -> {
+                        chainCategory = 1
+                    }
+                    //
+                    position in 4..6 -> {
+                        chainCategory = 2
+                    }
+                    //
+                    position in 7..9 -> {
+                        chainCategory = 3
+                    }
+                }
                 showChainTypeAndMelting()
 
 
@@ -112,6 +137,7 @@ class MainActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
                 chainType = "Kamal"
+                chainCategory = 1
                 showChainTypeAndMelting()
 
             }
@@ -126,10 +152,12 @@ class MainActivity : AppCompatActivity() {
 
                 R.id.rbtnGoldMelting99_5 -> {
                     goldMeltingPayment = "99.5"
+                    tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
                 R.id.rbtnGoldMelting100 -> {
                     goldMeltingPayment = "100"
+                    tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
                 R.id.rbtnGoldMeltingCustom -> {
@@ -140,6 +168,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.rbtnGoldMeltingCash -> {
                     goldMeltingPayment = "Cash"
+                    tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
                 }
 
@@ -150,7 +179,142 @@ class MainActivity : AppCompatActivity() {
 
         }
         //
+        bind.btnAddToCart.setOnClickListener {
 
+            if(bind.etChainWeight.text.toString().isNotEmpty())
+            {
+                itemWeight = bind.etChainWeight.text.toString().toDouble()
+                wastageIdentify()
+                addMeltAndWastage()
+                fineCaluclator()
+                _9950Calculator()
+                tunchCalculator()
+                amountCalculator()
+                //
+                arrayPerItemBill.add(BillDetails(chainType, itemWeight,chainMelting,wastagePercent,
+                    meltPlusWastage,fineGold,_9950Gold,tunchGold,amountToPay))
+                //
+                bind.etChainWeight.text.clear()
+                    //
+                Toast.makeText(this, "Chain Added", Toast.LENGTH_SHORT).show()
+
+
+            }
+            else
+            {
+                Toast.makeText(this, "Please Enter weight", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        //
+        //
+
+    }
+    ///
+//    var arrChainList = arrayOf("Kamal","Sehensha","Ball Chain","Box Chain","Rodking",
+//        "Press Chain","Crop Chain","Noli","Chaki Pech","Noli Pech")
+
+    private fun wastageIdentify()
+    {
+        when(chainCategory)
+        {
+            //Kamal chain wastage
+            1 -> {
+
+                if(itemWeight<3){
+
+                    wastagePercent = if(chainMelting==91.7) {
+                        1.3
+                    } else {
+                        1.5
+                    }
+
+                }
+                else if(itemWeight>=3){
+
+                    wastagePercent = 1.0
+
+                }
+            }
+            //
+            //Box chain wastage
+            2 -> {
+
+                if(itemWeight<3){
+
+                    wastagePercent = if(chainMelting==91.7) {
+                        2.55
+                    } else {
+                        2.25
+                    }
+
+                }
+                else if(itemWeight>=3){
+
+                    wastagePercent = if(chainMelting==91.7) {
+                        2.3
+                    } else {
+                        2.0
+                    }
+
+                }
+            }
+            //
+            //Pech wastage
+            3 -> {
+
+                if(itemWeight<1){
+
+                    itemWeight += when(chainType) {
+                        "Noli" -> {
+                            0.010
+                        }
+                        //
+                        else -> {
+                            0.030
+                        }
+                    }
+
+                    wastagePercent = 0.0
+
+                }
+                else if(itemWeight>=1){
+
+                    wastagePercent = if(chainMelting==91.7) {
+                        2.55
+                    } else {
+                        2.25
+                    }
+
+                }
+
+            }
+        }
+    }
+    //
+    private fun addMeltAndWastage()
+    {
+        meltPlusWastage = wastagePercent+chainMelting
+    }
+    //
+    private fun fineCaluclator()
+    {
+        fineGold = itemWeight*meltPlusWastage/100
+    }
+    //
+    private fun _9950Calculator()
+    {
+        _9950Gold = itemWeight*meltPlusWastage/99.5
+    }
+    //
+    private fun tunchCalculator()
+    {
+        tunchGold = itemWeight*meltPlusWastage/tunchValue
+    }
+    //
+    private fun amountCalculator()
+    {
+        amountToPay = fineGold* goldPricePerGram
     }
     //
     private fun openTunchInput()
@@ -176,8 +340,9 @@ class MainActivity : AppCompatActivity() {
 
             if (etTunchInput.text.toString().isNotEmpty()) {
 
-                val tunchShow = etTunchInput.text.toString()
-                bind.rbtnGoldMeltingCustom.text = tunchShow
+                val tunchShow = etTunchInput.text.toString().toDouble()
+                tunchValue = tunchShow
+                bind.rbtnGoldMeltingCustom.text = tunchShow.toString()
                 dialog.dismiss()
 
             } else {

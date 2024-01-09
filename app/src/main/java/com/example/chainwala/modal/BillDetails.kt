@@ -3,7 +3,7 @@ package com.example.chainwala.modal
 data class BillDetails(
 
     val itemName:String,
-    val itemWeight:String,
+    val itemWeight:Double,
     val meltPercent:Double,
     val wastagePercent:Double,
     val meltPlusWastage:Double,
