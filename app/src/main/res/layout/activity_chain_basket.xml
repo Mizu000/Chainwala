@@ -14,19 +14,72 @@
         android:layout_height="wrap_content"
         android:text="@string/payment"
         android:layout_alignParentTop="true"
+        android:background="@color/primary_color"
         android:textColor="@color/secondary_color"
         android:textSize="22sp"
         android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:padding="5dp"
         android:gravity="center"
         />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgGoldMelting"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_below="@id/txtPaymentShow"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting99.5"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/_99_5" />
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting100"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/_100"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMeltingCustom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/tunch" />
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMeltingCash"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/cash"
+
+            />
+
+
+    </RadioGroup>
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/llBillHeading"
-        android:layout_below="@id/txtPaymentShow"
+        android:layout_below="@id/rgGoldMelting"
         android:background="@color/primary_color"
         android:orientation="horizontal">
 
