@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_alignParentTop="true"
+        android:layout_margin="20dp"
         android:text="Payment"
         android:textSize="36sp" />
 
