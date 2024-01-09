@@ -16,12 +16,7 @@ class Setting : AppCompatActivity() {
     val GOLD_PER_GRAM = "goldPerGram"
     val EXTRA_GOLD_PER_GRAM = "extraGoldPerGram"
 
-    companion object{
 
-        var goldPricePerGram = 6280
-        var extraGoldPricePerGram = 6200
-
-    }
     //
     private lateinit var bind: ActivitySettingBinding
     //
@@ -40,14 +35,15 @@ class Setting : AppCompatActivity() {
 
             if(flag)
             {
-                goldPricePerGram = bind.etGoldPer10Gram.text.toString().toInt()/10
-                extraGoldPricePerGram = bind.etExtraGoldPer10Gram.text.toString().toInt()/10
+                MainActivity.goldPricePerGram = bind.etGoldPer10Gram.text.toString().toInt()/10
+                MainActivity.extraGoldPricePerGram = bind.etExtraGoldPer10Gram.text.toString().toInt()/10
 
-                sharedPreferences.edit().putInt(GOLD_PER_GRAM, goldPricePerGram).apply()
-                sharedPreferences.edit().putInt(EXTRA_GOLD_PER_GRAM, extraGoldPricePerGram).apply()
+                sharedPreferences.edit().putInt(GOLD_PER_GRAM, MainActivity.goldPricePerGram).apply()
+                sharedPreferences.edit().putInt(EXTRA_GOLD_PER_GRAM, MainActivity.extraGoldPricePerGram).apply()
                 //
                 Toast.makeText(this,"Saved",Toast.LENGTH_SHORT).show()
-                Toast.makeText(this,"$goldPricePerGram, $extraGoldPricePerGram",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"${MainActivity.goldPricePerGram}," +
+                        " ${MainActivity.extraGoldPricePerGram}",Toast.LENGTH_SHORT).show()
 
             }
             else

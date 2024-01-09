@@ -1,7 +1,9 @@
 package com.example.chainwala.activity
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -28,6 +30,17 @@ class MainActivity : AppCompatActivity() {
     private var goldMeltingPayment = "99.5"
     //
 
+    companion object{
+
+        var goldPricePerGram = 6280
+        var extraGoldPricePerGram = 6200
+
+    }
+    //
+    private lateinit var sharedPreferences: SharedPreferences
+    val GOLD_PRICE_FILE = "goldPriceFile"
+    val GOLD_PER_GRAM = "goldPerGram"
+    val EXTRA_GOLD_PER_GRAM = "extraGoldPerGram"
     //
     
 
@@ -38,6 +51,9 @@ class MainActivity : AppCompatActivity() {
         bind = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bind.root)
 
+        sharedPreferences = getSharedPreferences(GOLD_PRICE_FILE, Context.MODE_PRIVATE)
+        goldPricePerGram = sharedPreferences.getInt(GOLD_PER_GRAM, goldPricePerGram)
+        extraGoldPricePerGram = sharedPreferences.getInt(EXTRA_GOLD_PER_GRAM, extraGoldPricePerGram)
         //
         bind.btnAddToCart.setOnClickListener {
 
@@ -152,12 +168,8 @@ class MainActivity : AppCompatActivity() {
         //
         val etTunchInput:EditText = dialog.findViewById(R.id.etTunchMelting)
         val btnTunchMelting:Button = dialog.findViewById(R.id.btnTunchMelting)
-
             dialog.show()
-
         //
-
-
 
 
         btnTunchMelting.setOnClickListener {
