@@ -45,7 +45,7 @@ class ItemListBillAdapter(val perItemBill:ArrayList<BillDetails>):
         val fullBill = perItemBill[position]
         //
         holder.itemName.text = "${position+1}. ${fullBill.itemName}"
-        holder.itemWeight.text = holder.itemWeight.toString()
+        holder.itemWeight.text = fullBill.itemWeight.toString()
         holder.itemMelt.text = fullBill.meltPercent.toString()
         holder.itemWastage.text = fullBill.wastagePercent.toString()
         holder.meltPlusWastage.text = fullBill.meltPlusWastage.toString()
