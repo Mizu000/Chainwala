@@ -3,80 +3,83 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="20dp"
+    android:layout_marginBottom="2dp"
     android:orientation="horizontal">
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:id="@+id/txtItemDesc"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="4"
-        android:text="Item Name"
+        android:text="Name"
+        android:gravity="center"
         />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:id="@+id/txtItemWeight"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="3"
-        android:text="Item Name"
+        android:text="Wght"
+        android:gravity="center"
         />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:id="@+id/txtItemMelt"
-        android:layout_weight="3"
-        android:text="Item Name"
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Melt%" />
+
+    <TextView
         android:id="@+id/txtItemWastage"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="2"
-        android:text="Item Name"
-        />
+        android:gravity="center"
+        android:text="W%" />
 
     <TextView
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
         android:id="@+id/txtItemMeltPlusWastage"
-        android:layout_weight="3"
-        android:text="Item Name"
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="MW%" />
+
+    <TextView
         android:id="@+id/txtItemFineGold"
-        android:layout_weight="3"
-        android:text="Item Name"
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Fine" />
+
+    <TextView
         android:id="@+id/txtItem9950Gold"
-        android:layout_weight="3"
-        android:text="Item Name"
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="99.5" />
+
+    <TextView
         android:id="@+id/txtItemTucnhGold"
-        android:layout_weight="3"
-        android:text="Item Name"
-        />
-
-    <TextView
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:text="Tunch" />
+
+    <TextView
         android:id="@+id/txtItemPayAmount"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:layout_weight="4"
-        android:text="Item Name"
-        />
+        android:gravity="center"
+        android:text="Amount" />
+
 
 
 

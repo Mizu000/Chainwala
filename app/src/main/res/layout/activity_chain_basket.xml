@@ -7,27 +7,162 @@
     android:orientation="vertical"
     tools:context=".activity.ChainBasket">
 
+
     <TextView
         android:id="@+id/txtPaymentShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:text="@string/gold_melting_payment"
         android:layout_alignParentTop="true"
-        android:layout_margin="20dp"
-        android:text="Payment"
-        android:textSize="36sp" />
+        android:textColor="@color/secondary_color"
+        android:textSize="22sp"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:gravity="center"
+        />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rgGoldMelting"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:layout_below="@+id/txtPaymentShow"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        >
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting99.5"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/_99_5" />
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMelting100"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/_100"
+
+            />
+
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMeltingCustom"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/tunch" />
+
+        <RadioButton
+            android:id="@+id/rbtnGoldMeltingCash"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/cash"
+
+            />
+
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/llBillHeading"
+        android:layout_below="@id/rgGoldMelting"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Name"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Wght"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="Melt%"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:text="W%"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="MW%"
+            android:gravity="center"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:text="Fine"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:text="99.5"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_weight="3"
+            android:text="Tunch"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:text="Amount"
+            android:gravity="center"
+            />
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvBillDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_below="@id/txtPaymentShow"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/llBillHeading"
         android:layout_above="@id/llBillTotal"
         />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="wrap_content"
         android:id="@+id/llBillTotal"
         android:layout_above="@id/btnPrintBill"
         android:layout_marginBottom="20dp"
@@ -36,73 +171,73 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemDesc"
             android:layout_weight="4"
-            android:text="Item Name"
+            android:text="Total"
+            android:gravity="center"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemWeight"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="Wght"
+            android:gravity="center"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemMelt"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="Melt%"
+            android:gravity="center"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemWastage"
             android:layout_weight="2"
-            android:text="Item Name"
+            android:text="W%"
+            android:gravity="center"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemMeltPlusWastage"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="MW%"
+            android:gravity="center"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemFineGold"
+            android:gravity="center"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="Fine"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItem9950Gold"
+            android:gravity="center"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="99.5"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemTucnhGold"
+            android:gravity="center"
             android:layout_weight="3"
-            android:text="Item Name"
+            android:text="Tunch"
             />
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:id="@+id/txtItemPayAmount"
             android:layout_weight="4"
-            android:text="Item Name"
+            android:text="Amount"
+            android:gravity="center"
             />
 
     </LinearLayout>
