@@ -3,10 +3,13 @@ package com.example.chainwala.activity
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chainwala.R
@@ -23,7 +26,7 @@ class ChainBasket : AppCompatActivity() {
     //
     private lateinit var bind: ActivityChainBasketBinding
     //
-    private var goldMeltingPayment = "99.5"
+    private var goldMeltingPayment = "99.50"
     var tunchValue = 0.0
     //
     var totalWeight = 0.0
@@ -65,16 +68,17 @@ class ChainBasket : AppCompatActivity() {
             {
 
                 R.id.rbtnGoldMelting99_5 -> {
-                    goldMeltingPayment = "99.5"
+
+
                     tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
-                    bind.txtPaymentShow.text = total9950.toString()
+                    showBillToCustomer("99.50")
                 }
                 R.id.rbtnGoldMelting100 -> {
-                    goldMeltingPayment = "100"
+
                     tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
-                    bind.txtPaymentShow.text = totalFine.toString()
+                    showBillToCustomer("Fine")
                 }
                 R.id.rbtnGoldMeltingCustom -> {
 
@@ -83,10 +87,10 @@ class ChainBasket : AppCompatActivity() {
 
                 }
                 R.id.rbtnGoldMeltingCash -> {
-                    goldMeltingPayment = "Cash"
+
                     tunchValue = 0.0
                     bind.rbtnGoldMeltingCustom.text = "Tunch"
-                    bind.txtPaymentShow.text = totalAmount.toString()
+                    showBillToCustomer("Cash")
                 }
 
             }
@@ -95,10 +99,100 @@ class ChainBasket : AppCompatActivity() {
 
 
         }
+        ///
+        bind.etCustomerPaying.addTextChangedListener(object:TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+               showPaymentOfCustomer()
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+        })
+        ///
+        
+        bind.btnPrintBill.setOnClickListener { 
+            
+            MainActivity.arrayPerItemBill.clear()
+            
+        }
 
 
 
     }
+    //
+    fun showBillToCustomer(temp:String)
+    {
+
+        //
+        goldMeltingPayment =  temp
+        //
+        showPaymentOfCustomer()
+        //
+        when(goldMeltingPayment)
+        {
+            "99.50" -> {
+
+                bind.txtPaymentShow.text = "Gold: ${total9950}, Melt%: 99.50"
+            }
+            //
+            "Fine" -> {
+
+                bind.txtPaymentShow.text = "Gold: ${totalFine}, Melt%: Fine"
+
+            }
+            //
+            "Tunch" -> {
+
+                bind.txtPaymentShow.text = "Gold: ${tunchGold}, Melt%: $tunchValue"
+
+            }
+            //
+            "Cash" -> {
+
+                bind.txtPaymentShow.text = "Cash: ${totalAmount} Rs"
+
+            }
+        }
+
+      
+    }
+    //
+    fun showPaymentOfCustomer()
+    {
+        val temp = bind.etCustomerPaying.text.toString()
+
+        when(goldMeltingPayment)
+        {
+            "99.50" -> {
+
+                bind.txtPaidShow.text = "Gold: ${temp}, Melt%: 99.50"
+            }
+            //
+            "Fine" -> {
+
+                bind.txtPaidShow.text = "Gold: ${temp}, Melt%: Fine"
+
+            }
+            //
+            "Tunch" -> {
+
+                bind.txtPaidShow.text = "Gold: ${temp}, Melt%: $tunchValue"
+
+            }
+            //
+            "Cash" -> {
+
+                bind.txtPaidShow.text = "Cash: ${temp} Rs"
+
+            }
+        }
+    }
+
 //
 
     fun totalWeightCalculator()
@@ -108,6 +202,8 @@ class ChainBasket : AppCompatActivity() {
         {
             totalWeight += n.itemWeight
         }
+
+        totalWeight = String.format("%.3f",totalWeight).toDouble()
 
         bind.txtItemTotalWeight.text = totalWeight.toString()
         ///
@@ -121,6 +217,8 @@ class ChainBasket : AppCompatActivity() {
             totalFine += n.fine
         }
 
+        totalFine = String.format("%.3f",totalFine).toDouble()
+
         bind.txtItemTotalFineGold.text = totalFine.toString()
         ///
 
@@ -133,6 +231,8 @@ class ChainBasket : AppCompatActivity() {
         {
             total9950 += n._9950
         }
+
+        total9950 = String.format("%.3f",total9950).toDouble()
         //
         bind.txtItemTotal9950Gold.text = total9950.toString()
         //
@@ -188,7 +288,7 @@ private fun tunchCalculator()
                 tunchValue = tunchShow
                 tunchCalculator()
                 bind.rbtnGoldMeltingCustom.text = tunchShow.toString()
-                bind.txtPaymentShow.text = tunchGold.toString()
+                showBillToCustomer("Tunch")
                 dialog.dismiss()
 
             } else {

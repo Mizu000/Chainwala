@@ -184,7 +184,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvBillDetails"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="135dp"
         android:layout_below="@id/viewHorizontalLine2"
 
         />
@@ -306,7 +306,7 @@
             android:layout_height="match_parent"
             android:layout_weight="6"
             android:gravity="center"
-            android:text="Total"
+            android:text="Paid"
             android:textColor="@color/secondary_color" />
 
         <View
