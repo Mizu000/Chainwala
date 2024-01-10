@@ -8,14 +8,15 @@
     tools:context=".activity.ChainBasket">
 
 
+
     <TextView
         android:id="@+id/txtPaymentShow"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/payment"
         android:layout_alignParentTop="true"
-        android:background="@color/primary_color"
-        android:textColor="@color/secondary_color"
+        android:background="@color/secondary_color"
+        android:textColor="@color/primary_color"
         android:textSize="22sp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="30dp"
@@ -94,8 +95,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity="center"
             android:text="Name"
-            android:gravity="center" />
+            android:textColor="@color/secondary_color" />
 
         <View
             android:layout_width="1dp"
@@ -107,8 +109,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
+            android:gravity="center"
             android:text="Weight"
-            android:gravity="center" />
+            android:textColor="@color/secondary_color" />
 
 
         <View
@@ -122,7 +125,8 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center"
-            android:text="MW%" />
+            android:text="MW%"
+            android:textColor="@color/secondary_color" />
 
         <View
             android:layout_width="1dp"
@@ -135,7 +139,8 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Fine" />
+            android:text="Fine"
+            android:textColor="@color/secondary_color" />
 
         <View
             android:layout_width="1dp"
@@ -148,7 +153,8 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="99.5" />
+            android:text="99.5"
+            android:textColor="@color/secondary_color" />
 
         <View
             android:layout_width="1dp"
@@ -162,7 +168,8 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Amount" />
+            android:text="Amount"
+            android:textColor="@color/secondary_color" />
 
     </LinearLayout>
 
@@ -187,7 +194,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_below="@id/rcvBillDetails"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="5dp"
         android:background="@color/secondary_color"
         android:orientation="horizontal">
 
@@ -195,8 +202,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="6"
+            android:gravity="center"
             android:text="Total"
-            android:gravity="center" />
+            android:textColor="@color/primary_color" />
 
         <View
             android:layout_width="1dp"
@@ -208,8 +216,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="4"
+            android:gravity="center"
             android:text="Weight"
-            android:gravity="center" />
+            android:textColor="@color/primary_color" />
 
 
         <View
@@ -222,7 +231,8 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:gravity="center"
-            android:text="MW%" />
+            android:text="MW%"
+            android:textColor="@color/primary_color" />
 
         <View
             android:layout_width="1dp"
@@ -235,7 +245,8 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Fine" />
+            android:text="Fine"
+            android:textColor="@color/primary_color" />
 
         <View
             android:layout_width="1dp"
@@ -248,7 +259,8 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="99.5" />
+            android:text="99.5"
+            android:textColor="@color/primary_color" />
 
         <View
             android:layout_width="1dp"
@@ -262,10 +274,131 @@
             android:layout_height="match_parent"
             android:layout_weight="4"
             android:gravity="center"
-            android:text="Amount" />
+            android:text="Amount"
+            android:textColor="@color/primary_color" />
 
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/txtPaidShow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llBillTotal"
+        android:layout_above="@id/llBillPaying"
+        android:gravity="center"
+        android:text="Paying"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/accent_color"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/llBillPaying"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@id/etCustomerPaying"
+        android:layout_marginBottom="20dp"
+        android:background="@color/primary_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:text="Total"
+            android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtItemTotalWeightGiven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Weight"
+            android:textColor="@color/secondary_color" />
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="MW%"
+            android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtItemTotalFineGoldGiven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Fine"
+            android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+        <TextView
+            android:id="@+id/txtItemTotal9950GoldGiven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="99.5"
+            android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
+
+        <TextView
+            android:id="@+id/txtItemTotalPayAmountGiven"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="Amount"
+            android:textColor="@color/secondary_color" />
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:id="@+id/etCustomerPaying"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
+        android:paddingStart="10dp"
+        android:layout_above="@+id/etCustomerName"
+        android:background="#E3E0CF"
+        android:inputType="numberDecimal"
+        android:maxLines="1"
+        android:textColor="@color/secondary_color"
+        android:hint="Enter Customer Paying"
+        android:textColorHint="@color/secondary_color"
+        />
 
     <EditText
         android:layout_width="match_parent"
