@@ -50,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="@string/_100"
+            android:text= "fine"
 
             />
 
@@ -77,7 +77,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:id="@+id/llBillHeading"
         android:layout_below="@id/rgGoldMelting"
         android:background="@color/primary_color"
@@ -91,6 +91,11 @@
             android:text="Name"
             android:textColor="@color/secondary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -98,6 +103,11 @@
             android:gravity="center"
             android:text="Wght"
             android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -107,6 +117,11 @@
             android:text="Melt%"
             android:textColor="@color/secondary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -114,6 +129,11 @@
             android:gravity="center"
             android:text="W%"
             android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -123,6 +143,11 @@
             android:text="MW%"
             android:textColor="@color/secondary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -130,6 +155,11 @@
             android:gravity="center"
             android:text="Fine"
             android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -139,6 +169,11 @@
             android:text="99.5"
             android:textColor="@color/secondary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -146,6 +181,11 @@
             android:gravity="center"
             android:text="Tunch"
             android:textColor="@color/secondary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -157,11 +197,11 @@
 
     </LinearLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvBillDetails"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="5dp"
         android:layout_below="@id/llBillHeading"
         android:layout_above="@id/llBillTotal"
         />
@@ -169,7 +209,7 @@
     <LinearLayout
         android:id="@+id/llBillTotal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_above="@id/etCustomerName"
         android:layout_marginBottom="20dp"
         android:background="@color/secondary_color"
@@ -183,6 +223,11 @@
             android:text="Total"
             android:textColor="@color/primary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -190,6 +235,11 @@
             android:gravity="center"
             android:text="Wght"
             android:textColor="@color/primary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -199,6 +249,11 @@
             android:text="Melt%"
             android:textColor="@color/primary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -206,6 +261,11 @@
             android:gravity="center"
             android:text="W%"
             android:textColor="@color/primary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -215,6 +275,11 @@
             android:text="MW%"
             android:textColor="@color/primary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -222,6 +287,11 @@
             android:gravity="center"
             android:text="Fine"
             android:textColor="@color/primary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -231,6 +301,11 @@
             android:text="99.5"
             android:textColor="@color/primary_color" />
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -238,6 +313,11 @@
             android:gravity="center"
             android:text="Tunch"
             android:textColor="@color/primary_color" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/black" />
 
         <TextView
             android:layout_width="0dp"
@@ -248,6 +328,7 @@
             android:textColor="@color/primary_color" />
 
     </LinearLayout>
+
 
     <EditText
         android:layout_width="match_parent"
