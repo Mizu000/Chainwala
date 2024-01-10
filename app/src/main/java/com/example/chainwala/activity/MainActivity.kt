@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     var itemWeight = 0.0
     var wastagePercent =0.0
     var meltPlusWastage=0.0
-    var tunchValue = 0.0
+
     var chainCategory = 1   /// 1 = kamal wastage, 2 = box chain wasatage, 3 -> pech
     ////
     private var fineGold = 0.0
@@ -36,9 +36,6 @@ class MainActivity : AppCompatActivity() {
     private var amountToPay = 0
     //
 
-    ///
-
-    private var goldMeltingPayment = "99.5"
     //
 
     companion object{
@@ -143,41 +140,7 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        //
 
-        bind.rgGoldMelting.setOnCheckedChangeListener { _, i ->
-
-            when(i)
-            {
-
-                R.id.rbtnGoldMelting99_5 -> {
-                    goldMeltingPayment = "99.5"
-                    tunchValue = 0.0
-                    bind.rbtnGoldMeltingCustom.text = "Tunch"
-                }
-                R.id.rbtnGoldMelting100 -> {
-                    goldMeltingPayment = "100"
-                    tunchValue = 0.0
-                    bind.rbtnGoldMeltingCustom.text = "Tunch"
-                }
-                R.id.rbtnGoldMeltingCustom -> {
-
-                    goldMeltingPayment = "Tunch"
-                    openTunchInput()
-
-                }
-                R.id.rbtnGoldMeltingCash -> {
-                    goldMeltingPayment = "Cash"
-                    tunchValue = 0.0
-                    bind.rbtnGoldMeltingCustom.text = "Tunch"
-                }
-
-            }
-
-
-
-
-        }
         //
         bind.btnAddToCart.setOnClickListener {
 
@@ -188,11 +151,10 @@ class MainActivity : AppCompatActivity() {
                 addMeltAndWastage()
                 fineCaluclator()
                 _9950Calculator()
-                tunchCalculator()
                 amountCalculator()
                 //
-                arrayPerItemBill.add(BillDetails(chainType, itemWeight,chainMelting,wastagePercent,
-                    meltPlusWastage,fineGold,_9950Gold,tunchGold,amountToPay))
+                arrayPerItemBill.add(BillDetails(chainType, itemWeight,
+                    meltPlusWastage,fineGold,_9950Gold,amountToPay))
                 //
                 bind.etChainWeight.text.clear()
                     //
@@ -308,59 +270,13 @@ class MainActivity : AppCompatActivity() {
         _9950Gold = itemWeight*meltPlusWastage/99.5
         _9950Gold = String.format("%.3f",_9950Gold).toDouble()
     }
-    //
-    private fun tunchCalculator()
-    {
-        tunchGold = if(tunchValue==0.0) {
-            0.0
-        } else {
-            itemWeight*meltPlusWastage/tunchValue
-        }
-        tunchGold = String.format("%.3f",tunchGold).toDouble()
 
-    }
     //
     private fun amountCalculator()
     {
         amountToPay = (fineGold* goldPricePerGram).toInt()
     }
-    //
-    private fun openTunchInput()
-    {
 
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.tunch_input)
-        dialog.setCancelable(false)
-
-
-        // Adjust the dialog's layout parameters
-        val layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT)
-        dialog.window?.setLayout(layoutParams.width, layoutParams.height)
-        //
-        val etTunchInput:EditText = dialog.findViewById(R.id.etTunchMelting)
-        val btnTunchMelting:Button = dialog.findViewById(R.id.btnTunchMelting)
-            dialog.show()
-        //
-
-        btnTunchMelting.setOnClickListener {
-
-            if (etTunchInput.text.toString().isNotEmpty()) {
-
-                val tunchShow = etTunchInput.text.toString().toDouble()
-                tunchValue = tunchShow
-                bind.rbtnGoldMeltingCustom.text = tunchShow.toString()
-                dialog.dismiss()
-
-            } else {
-                Toast.makeText(this, "Please Enter something", Toast.LENGTH_SHORT).show()
-            }
-        }
-
-
-        ///
-
-    }
     ///
     fun showChainTypeAndMelting()
     {

@@ -17,12 +17,9 @@ class ItemListBillAdapter(private val perItemBill:ArrayList<BillDetails>):
 
         val itemName:TextView = itemView.findViewById(R.id.txtItemDesc)
         val itemWeight:TextView = itemView.findViewById(R.id.txtItemWeight)
-        val itemMelt:TextView = itemView.findViewById(R.id.txtItemMelt)
-        val itemWastage:TextView = itemView.findViewById(R.id.txtItemWastage)
         val meltPlusWastage:TextView = itemView.findViewById(R.id.txtItemMeltPlusWastage)
         val fineGold:TextView = itemView.findViewById(R.id.txtItemFineGold)
         val _9950Gold:TextView = itemView.findViewById(R.id.txtItem9950Gold)
-        val tunchGold:TextView = itemView.findViewById(R.id.txtItemTucnhGold)
         val amountToPay:TextView = itemView.findViewById(R.id.txtItemPayAmount)
 
 
@@ -46,12 +43,9 @@ class ItemListBillAdapter(private val perItemBill:ArrayList<BillDetails>):
         //
         holder.itemName.text = "${position+1}. ${fullBill.itemName}"
         holder.itemWeight.text = fullBill.itemWeight.toString()
-        holder.itemMelt.text = fullBill.meltPercent.toString()
-        holder.itemWastage.text = fullBill.wastagePercent.toString()
         holder.meltPlusWastage.text = fullBill.meltPlusWastage.toString()
         holder.fineGold.text = fullBill.fine.toString()
         holder._9950Gold.text = fullBill._9950.toString()
-        holder.tunchGold.text = fullBill.tunch.toString()
         holder.amountToPay.text = fullBill.amount.toString()
 
     }
