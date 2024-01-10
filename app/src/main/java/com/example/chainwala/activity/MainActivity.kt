@@ -61,7 +61,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(bind.root)
 
         //
-        arrayPerItemBill.clear()  /// clearing the previous bill
+        arrayPerItemBill.clear() /// clearing the previous bill
+        //
+        if(arrayPerItemBill.size==0)
+        {
+            bind.txtShowItemCount.visibility = View.GONE
+        }
         //
         sharedPreferences = getSharedPreferences(GOLD_PRICE_FILE, Context.MODE_PRIVATE)
         goldPricePerGram = sharedPreferences.getInt(GOLD_PER_GRAM, goldPricePerGram)
@@ -159,6 +164,12 @@ class MainActivity : AppCompatActivity() {
                 bind.etChainWeight.text.clear()
                     //
                 Toast.makeText(this, "Chain Added", Toast.LENGTH_SHORT).show()
+                //
+                if(arrayPerItemBill.size>0)
+                {
+                    bind.txtShowItemCount.visibility = View.VISIBLE
+                }
+                bind.txtShowItemCount.text = arrayPerItemBill.size.toString()
 
 
             }
@@ -171,6 +182,16 @@ class MainActivity : AppCompatActivity() {
         //
         //
 
+    }
+    //
+
+    override fun onResume() {
+        super.onResume()
+
+        if(arrayPerItemBill.size==0)
+        {
+            bind.txtShowItemCount.visibility = View.GONE
+        }
     }
     ///
 //    var arrChainList = arrayOf("Kamal","Sehensha","Ball Chain","Box Chain","Rodking",

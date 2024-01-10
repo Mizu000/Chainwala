@@ -38,14 +38,34 @@
             android:src="@drawable/ic_calculator"
             />
 
-        <ImageView
-            android:id="@+id/imgChainBasket"
+        <RelativeLayout
             android:layout_width= "0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:padding="5dp"
-            android:src="@drawable/ic_cart"
-            />
+            >
+
+            <ImageView
+                android:id="@+id/imgChainBasket"
+                android:layout_width= "match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp"
+                android:src="@drawable/ic_cart"
+                />
+
+            <TextView
+                android:id="@+id/txtShowItemCount"
+                android:layout_width="20dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@color/accent_color"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+
 
         <ImageView
             android:id="@+id/imgSetting"
